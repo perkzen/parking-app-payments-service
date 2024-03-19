@@ -1,0 +1,28 @@
+# mongofb
+
+version: '3.7'
+
+services:
+  mongo:
+    image: mongo:4.0.4
+    container_name: mongo
+    restart: on-failure
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    volumes:
+      - ./data:/data/db
+  test-mongo:
+    image: mongo:4.0.4
+    container_name: test-mongo
+    restart: on-failure
+    ports:
+      - "27018:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+
+volumes:
+  data:
