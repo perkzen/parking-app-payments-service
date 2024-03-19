@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [ "main" ]
 
+env:
+  QUARKUS_MONGODB_CONNECTION_STRING: mongodb://root:root@localhost:27017
+
 jobs:
   build-test-package:
     runs-on: ubuntu-latest
@@ -35,6 +38,6 @@ jobs:
           cache: maven
 
       - name: Build and test with Maven
-        run: mvn -B package --file pom.xml -Dquarkus.quarkus.mongodb.connection-string=mongodb://root:root@localhost:27017
+        run: mvn -B package --file pom.xml
 
 
