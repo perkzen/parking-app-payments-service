@@ -52,7 +52,7 @@ jobs:
 
 
       - name: Push Docker image
-        run: docker push perkzen/parking-app-parking-service
+        run: docker push perkzen/parking-app-payments-service
 
 
 
